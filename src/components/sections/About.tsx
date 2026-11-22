@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import RichText from "@/components/ui/RichText";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Tear from "@/components/ui/Tear";
-import { MascotFigure } from "@/components/ui/Mascot";
 import { about } from "@/data/content";
 
 function Handle({ className }: { className: string }) {
@@ -26,7 +26,16 @@ export default function About() {
                 <Handle className="-right-1.5 -bottom-1.5" />
                 <Handle className="-top-1.5 left-1/2 -translate-x-1/2" />
                 <Handle className="-bottom-1.5 left-1/2 -translate-x-1/2" />
-                <MascotFigure className="mx-auto h-auto w-full" />
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-card">
+                  <Image
+                    src="/images/phebian.png"
+                    alt="Phebian Nwokeji"
+                    width={1122}
+                    height={1402}
+                    className="h-full w-full object-cover"
+                    priority
+                  />
+                </div>
               </div>
               <span className="absolute -right-6 -bottom-8 flex items-center gap-1 rounded-sm bg-red px-2 py-1 text-[.72rem] font-semibold text-white md:-right-10">
                 <svg viewBox="0 0 12 12" className="h-3 w-3 -translate-y-1.5 -translate-x-3 fill-red" aria-hidden="true">
@@ -36,9 +45,9 @@ export default function About() {
               </span>
             </div>
             <p className="hand mt-12 text-center text-[1.35rem] text-ink/80">
-              ↑ one of my agents, mid-review
+              ↑ that&apos;s me :)
               <br />
-              (artist&apos;s impression)
+              (the human behind the agents)
             </p>
           </Reveal>
 

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { MascotFace } from "@/components/ui/Mascot";
 import LagosClock from "@/components/ui/LagosClock";
 import { navLinks, profile } from "@/data/content";
 
@@ -25,10 +25,19 @@ export default function TopBar() {
       <header className="fixed inset-x-0 top-0 z-50 flex items-start justify-between px-3 pt-3 md:px-6 md:pt-5">
         <a
           href="#top"
-          className="flex items-center gap-2 rounded-full border-2 border-ink bg-card py-1.5 pr-5 pl-2 shadow-[3px_3px_0_var(--ink)]"
+          className="flex items-center gap-2 rounded-full border-2 border-ink bg-card py-1.5 pr-5 pl-1.5 shadow-[3px_3px_0_var(--ink)]"
           onClick={() => setOpen(false)}
         >
-          <MascotFace className="h-8 w-8" />
+          <span className="relative h-8 w-8 overflow-hidden rounded-full border border-ink/40">
+            <Image
+              src="/images/phebian.png"
+              alt={profile.name}
+              fill
+              sizes="32px"
+              className="object-cover"
+              priority
+            />
+          </span>
           <span className="display text-[.8rem] [font-stretch:110%]">{profile.name}</span>
         </a>
         <button
